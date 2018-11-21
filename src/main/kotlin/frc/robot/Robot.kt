@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 
 import frc.robot.commands.ExampleCommand
-import frc.robot.subsystems.ExampleSubsystem
+import frc.robot.subsystems.*
 
 class Robot: IterativeRobot() {
   /**
@@ -16,6 +16,7 @@ class Robot: IterativeRobot() {
   companion object {
     val exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     var oi: OI? = null
+    val driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
   }
 
   var autonomousCommand: Command? = null

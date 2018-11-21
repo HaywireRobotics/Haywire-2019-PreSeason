@@ -16,4 +16,9 @@ object RobotMap {
   // number and the module. For example you with a rangefinder:
   // val rangefinderPort = 1
   // val rangefinderModule = 1
+
+  val driveTrainLeft0 = 0
+  val driveTrainLeft1 = 1
+  val driveTrainRight0 = 2
+  val driveTrainRight1 = 3
 }
