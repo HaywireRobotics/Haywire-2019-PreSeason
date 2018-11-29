@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Scheduler
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 
-import frc.robot.commands.ExampleCommand
+import frc.robot.commands.*
 import frc.robot.subsystems.*
 
 class Robot: IterativeRobot() {
@@ -28,6 +28,7 @@ class Robot: IterativeRobot() {
    */
   override fun robotInit() {
     oi = OI()
+    chooser.addObject("DriveForward", DriveForward(2.0, 1.0))
     chooser.addDefault("Default Auto", ExampleCommand())
     // chooser.addObject("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", chooser)
