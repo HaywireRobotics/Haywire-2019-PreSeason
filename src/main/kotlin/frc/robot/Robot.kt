@@ -32,9 +32,15 @@ class Robot: IterativeRobot() {
     oi = OI()
     chooser.addObject("DriveForward", DriveForward(2.0, .250))
     chooser.addDefault("Default Auto", ExampleCommand())
+    chooser.addObject("Drive1Rotation", DriveRotation(1))
     // chooser.addObject("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", chooser)
-    SmartDashboard.putData(sensorSubsystem.encoder)
+    // SmartDashboard.putData(sensorSubsystem.encoder)
+  }
+
+  override fun robotPeriodic() {
+    println("Encoder 1: " + sensorSubsystem.encoder1.raw)
+    println("Encoder 2: " + sensorSubsystem.encoder2.raw)
   }
 
   /**
@@ -102,7 +108,7 @@ class Robot: IterativeRobot() {
    * This function is called periodically during test mode
    */
   override fun testPeriodic() {
-    println(sensorSubsystem.encoder.raw)
+    // println(sensorSubsystem.encoder.raw)
     Scheduler.getInstance().run()
   }
 }
