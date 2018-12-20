@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command
 import edu.wpi.first.wpilibj.command.Scheduler
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+import edu.wpi.first.wpilibj.livewindow.LiveWindow
 
 import frc.robot.commands.*
 import frc.robot.subsystems.*
@@ -17,6 +18,7 @@ class Robot: IterativeRobot() {
     val exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     var oi: OI? = null
     val driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
+    val sensorSubsystem: SensorSubsystem = SensorSubsystem()
   }
 
   var autonomousCommand: Command? = null
@@ -32,6 +34,7 @@ class Robot: IterativeRobot() {
     chooser.addDefault("Default Auto", ExampleCommand())
     // chooser.addObject("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", chooser)
+    SmartDashboard.putData(sensorSubsystem.encoder)
   }
 
   /**
@@ -90,10 +93,16 @@ class Robot: IterativeRobot() {
    */
   override fun teleopPeriodic() {
     Scheduler.getInstance().run()
+    println(sensorSubsystem.navXMicroBoard.getCompassHeading())
   }
+
+  override fun testInit() {}
 
   /**
    * This function is called periodically during test mode
    */
-  override fun testPeriodic() {}
+  override fun testPeriodic() {
+    println(sensorSubsystem.encoder.raw)
+    Scheduler.getInstance().run()
+  }
 }
