@@ -30,7 +30,7 @@ class Robot: IterativeRobot() {
    */
   override fun robotInit() {
     oi = OI()
-    chooser.addObject("DriveForward", DriveForward(2.0, 1.0))
+    chooser.addObject("DriveForward", DriveForward(2.0, .250))
     chooser.addDefault("Default Auto", ExampleCommand())
     // chooser.addObject("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", chooser)
