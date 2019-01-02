@@ -27,7 +27,7 @@ class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
     
     val timer: Timer = Timer()
     init {
-        timer.schedule(TankTrajectoryFollower(this, leftFollower, rightFollower), 0, RobotMap.deltaTime)
+        timer.schedule(TankTrajectoryFollower(this, leftFollower, rightFollower), 0.0.toLong(), (RobotMap.deltaTime * 1000).toLong())
     }
 }
 
