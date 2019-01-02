@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow
 
 import frc.robot.commands.*
 import frc.robot.subsystems.*
+import frc.robot.pathfinder.MotionProfiler
 
 class Robot: IterativeRobot() {
   /**
@@ -19,6 +20,7 @@ class Robot: IterativeRobot() {
     var oi: OI? = null
     val driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     val sensorSubsystem: SensorSubsystem = SensorSubsystem()
+    val motionProfiler: MotionProfiler = MotionProfiler()
   }
 
   var autonomousCommand: Command? = null

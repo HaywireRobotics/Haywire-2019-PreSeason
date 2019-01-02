@@ -1,4 +1,4 @@
 pathfinder:
     ☐ Method to run motion profile using timer tasks
-    ☐ Method to generate motion profiles based on waypoints "generateMotionProfile(Waypoints[])"
+    ✔ Method to generate motion profiles based on waypoints "generateMotionProfile(Waypoints[])" @done(19-01-02 12:12)
     ☐ Spitballing: MotionProfiler class that uses constants from RobotMap that are required with the above method to actually create the trajectory. Then the trajectory is passed to the MotionExecutor that executes the motion based on the constants in RobotMap
