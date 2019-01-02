@@ -9,7 +9,9 @@ import java.util.TimerTask
 
 class MotionExecutor () {
     val timer: Timer = Timer()
-    timer.schedule(new Looper(), 5 * 1000)
+    init {
+        timer.schedule(Looper(this), 5 * 1000)
+    }
 }
 
 class Looper(val parentObject: MotionExecutor) : TimerTask() {
