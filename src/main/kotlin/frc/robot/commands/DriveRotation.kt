@@ -12,7 +12,7 @@ class DriveRotation(rotations: Int): Command() {
   // 1 foot ~ 1200
   private var targetRot: Int = 2600 * 3
   private var leftSpeed: Double = 0.5
-  private var rightSpeed: Double = 0..5
+  private var rightSpeed: Double = 0.5
 
   init {
     // Use requires() here to declare subsystem dependencies
@@ -29,7 +29,7 @@ class DriveRotation(rotations: Int): Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    //TODO("Not Implemented")
+    // TODO: Not Implemented
     if (Robot.sensorSubsystem.encoder1.raw > Robot.sensorSubsystem.encoder2.raw) {
       leftSpeed -= 0.001
     }
