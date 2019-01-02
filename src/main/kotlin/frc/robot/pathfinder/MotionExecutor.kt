@@ -24,16 +24,16 @@ class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
         leftFollower.configurePIDVA(RobotMap.proportionalGain, RobotMap.integralGain, RobotMap.derivativeGain, 1 / RobotMap.maxVelocity, RobotMap.accelerationGain)
         rightFollower.configurePIDVA(RobotMap.proportionalGain, RobotMap.integralGain, RobotMap.derivativeGain, 1 / RobotMap.maxVelocity, RobotMap.accelerationGain)
     }
-    // For the timer tasks
-    // val timer: Timer = Timer()
-    // init {
-    //     timer.schedule(Looper(this), 5 * 1000)
-    // }
+    
+    val timer: Timer = Timer()
+    init {
+        timer.schedule(TankTrajectoryFollower(this, leftFollower, rightFollower), 0, RobotMap.deltaTime)
+    }
 }
 
-// class Looper(val parentObject: MotionExecutor) : TimerTask() {
-//     override fun run() {
-//         println("Hello World")
-//         parentObject.timer.cancel()
-//     }
-// }
+class TankTrajectoryFollower(val parentObject: MotionExecutor, val leftFollower: EncoderFollower, val rightFollower: EncoderFollower) : TimerTask() {
+    override fun run() {
+        println("Hello World")
+        parentObject.timer.cancel()
+    }
+}
