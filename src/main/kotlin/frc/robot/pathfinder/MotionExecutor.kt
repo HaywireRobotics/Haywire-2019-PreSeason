@@ -32,8 +32,26 @@ class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
 }
 
 class TankTrajectoryFollower(val parentObject: MotionExecutor, val leftFollower: EncoderFollower, val rightFollower: EncoderFollower) : TimerTask() {
+    var leftPower: Double = 0.0
+    var rightPower: Double = 0.0
+    var gyroHeading: Float = 0.0f
+    var desiredHeading: Double = 0.0
+    var angleDifference: Double = 0.0
+    var turn: Double = 0.0
+
     override fun run() {
-        println("Hello World")
-        parentObject.timer.cancel()
+        // parentObject.timer.cancel()
+        leftPower = leftFollower.calculate(Robot.sensorSubsystem.encoder1.raw)
+        rightPower = rightFollower.calculate(Robot.sensorSubsystem.encoder2.raw)
+        
+        // Gyro correction
+        gyroHeading = Robot.sensorSubsystem.navXMicroBoard.rawAccelZ
+        desiredHeading = Pathfinder.r2d(leftFollower.heading)
+
+        angleDifference = Pathfinder.boundHalfDegrees(desiredHeading - gyroHeading);
+        turn = 0.8 * (-1.0/80.0) * angleDifference;
+
+        // Move the motors
+        Robot.driveTrainSubsystem.tankdrive(leftPower + turn, rightPower - turn)
     }
 }

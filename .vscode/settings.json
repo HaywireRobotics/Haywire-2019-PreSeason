@@ -11,5 +11,35 @@
     ".project": true
   },
   "wpilib.online": true,
-  "java.home": "C:\\Program Files\\Java\\jdk1.8.0_192"
+  "java.home": "C:\\Program Files\\Java\\jdk1.8.0_192",
+  "cSpell.language": "en",
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "kotlin",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pub",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ]
 }
