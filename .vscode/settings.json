@@ -47,6 +47,8 @@
     "jaci",
     "pidva",
     "tankdrive",
-    "waypoint"
+    "traj",
+    "waypoint",
+    "waypoints"
   ]
 }
