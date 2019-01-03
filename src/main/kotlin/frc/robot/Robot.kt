@@ -35,6 +35,7 @@ class Robot: IterativeRobot() {
     chooser.addObject("DriveForward", DriveForward(2.0, .250))
     chooser.addDefault("Default Auto", ExampleCommand())
     chooser.addObject("Drive1Rotation", DriveRotation(1))
+    chooser.addObject("Drive Switch Left Motion Profile", TESTDriveSwitch())
     // chooser.addObject("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", chooser)
     // SmartDashboard.putData(sensorSubsystem.encoder)
