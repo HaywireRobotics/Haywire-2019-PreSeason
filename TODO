@@ -4,3 +4,4 @@ pathfinder:
     ✔ Spitballing: MotionProfiler class that uses constants from RobotMap that are required with the above method to actually create the trajectory. Then the trajectory is passed to the MotionExecutor that executes the motion based on the constants in RobotMap @done(19-01-02 17:07)
     ☐ Notification system so that the code can cause other actions to happen during the drive. example: Lifting the arm while moving to the target. Could be done by accessing a value in the MotionExecutor class and increasing it with every loop. Waiting for time is another valid option
     ✔ MotionExecutor should load everything on creation and then start the TimerTask only when .start() is called @done(19-01-02 20:24)
+    ☐ Actually implement the system in a command
