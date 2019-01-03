@@ -1,4 +1,5 @@
 pathfinder:
-    ☐ Method to run motion profile using timer tasks
+    ✔ Method to run motion profile using timer tasks @done(19-01-02 17:07)
     ✔ Method to generate motion profiles based on waypoints "generateMotionProfile(Waypoints[])" @done(19-01-02 12:12)
-    ☐ Spitballing: MotionProfiler class that uses constants from RobotMap that are required with the above method to actually create the trajectory. Then the trajectory is passed to the MotionExecutor that executes the motion based on the constants in RobotMap
+    ✔ Spitballing: MotionProfiler class that uses constants from RobotMap that are required with the above method to actually create the trajectory. Then the trajectory is passed to the MotionExecutor that executes the motion based on the constants in RobotMap @done(19-01-02 17:07)
+    ☐ Notification system so that the code can cause other actions to happen during the drive. example: Lifting the arm while moving to the target. Could be done by accessing a value in the MotionExecutor class and increasing it with every loop. Waiting for time is another valid option
