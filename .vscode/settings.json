@@ -41,5 +41,12 @@
     "typescript",
     "typescriptreact",
     "yml"
+  ],
+  "cSpell.words": [
+    "accel",
+    "jaci",
+    "pidva",
+    "tankdrive",
+    "waypoint"
   ]
 }
