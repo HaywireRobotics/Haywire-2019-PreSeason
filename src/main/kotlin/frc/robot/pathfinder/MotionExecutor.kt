@@ -14,6 +14,7 @@ import frc.robot.RobotMap
 class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
     val leftFollower: EncoderFollower = EncoderFollower(trajectoryContainer.leftTrajectory)
     val rightFollower: EncoderFollower = EncoderFollower(trajectoryContainer.rightTrajectory)
+    var runTrajFollower: Boolean = false
     
     init {  // Encoder configuration
         leftFollower.configureEncoder(Robot.sensorSubsystem.encoder1.raw, RobotMap.encoderTicksPerRevolution, RobotMap.wheelbaseWidth)
@@ -26,8 +27,17 @@ class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
     }
     
     val timer: Timer = Timer()
+    val followerObject = TankTrajectoryFollower(this, leftFollower, rightFollower)
     init {
-        timer.schedule(TankTrajectoryFollower(this, leftFollower, rightFollower), 0.0.toLong(), (RobotMap.deltaTime * 1000).toLong())
+        timer.schedule(followerObject, 0.0.toLong(), (RobotMap.deltaTime * 1000).toLong())
+    }
+
+    fun start() {
+        this.runTrajFollower = true
+    }
+
+    fun stop() {
+        followerObject.cancel()
     }
 }
 
@@ -40,7 +50,13 @@ class TankTrajectoryFollower(val parentObject: MotionExecutor, val leftFollower:
     var turn: Double = 0.0
 
     override fun run() {
+        if (parentObject.runTrajFollower) {
+            this.follow()
+        }
         // parentObject.timer.cancel()
+    }
+
+    fun follow() {
         leftPower = leftFollower.calculate(Robot.sensorSubsystem.encoder1.raw)
         rightPower = rightFollower.calculate(Robot.sensorSubsystem.encoder2.raw)
         
